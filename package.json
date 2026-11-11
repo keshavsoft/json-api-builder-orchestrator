@@ -1,5 +1,5 @@
 {
-  "name": "@keshavsoft/json-api-builder",
+  "name": "json-api-builder",
   "version": "1.0.0",
   "description": "Orchestrator for the modular JSON API Builder stages.",
   "type": "module",
@@ -25,13 +25,13 @@
     "access": "public"
   },
   "dependencies": {
-    "@keshavsoft/json-api-builder-create-folders": "^1.0.0",
-    "@keshavsoft/json-api-builder-create-files": "^1.0.0",
-    "@keshavsoft/json-api-builder-insert-content": "^1.0.0",
-    "@keshavsoft/json-api-builder-alter-content": "^1.0.0",
-    "@keshavsoft/json-api-builder-create-app": "^1.0.0",
-    "@keshavsoft/json-api-builder-create-endpoints": "^1.0.0",
-    "@keshavsoft/json-api-builder-validation": "^1.0.0"
+    "json-api-builder-create-folders": "^1.0.0",
+    "json-api-builder-create-files": "^1.0.0",
+    "json-api-builder-insert-content": "^1.0.0",
+    "json-api-builder-alter-content": "^1.0.0",
+    "json-api-builder-create-app": "^1.0.0",
+    "json-api-builder-create-endpoints": "^1.0.0",
+    "json-api-builder-validation": "^1.0.0"
   },
   "license": "MIT",
   "author": "KeshavSoft",

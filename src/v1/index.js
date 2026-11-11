@@ -1,28 +1,28 @@
 import path from "node:path";
 import {
     createFolders
-} from "@keshavsoft/json-api-builder-create-folders";
+} from "json-api-builder-create-folders";
 import {
     createFiles
-} from "@keshavsoft/json-api-builder-create-files";
+} from "json-api-builder-create-files";
 import {
     insertContent
-} from "@keshavsoft/json-api-builder-insert-content";
+} from "json-api-builder-insert-content";
 import {
     hookRoutes
-} from "@keshavsoft/json-api-builder-alter-content";
+} from "json-api-builder-alter-content";
 import {
     createApp,
     hookAppStrategies
-} from "@keshavsoft/json-api-builder-create-app";
+} from "json-api-builder-create-app";
 import {
     createEndpoints,
     createFileSyncEndpoint
-} from "@keshavsoft/json-api-builder-create-endpoints";
+} from "json-api-builder-create-endpoints";
 import {
     validateConfiguration,
     verifyGeneratedApp
-} from "@keshavsoft/json-api-builder-validation";
+} from "json-api-builder-validation";
 
 export function build(options = {}) {
     const clientRoot = path.resolve(options.clientRoot ?? process.cwd());
