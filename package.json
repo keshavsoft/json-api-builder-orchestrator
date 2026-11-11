@@ -32,5 +32,15 @@
     "@keshavsoft/json-api-builder-create-app": "^1.0.0",
     "@keshavsoft/json-api-builder-create-endpoints": "^1.0.0",
     "@keshavsoft/json-api-builder-validation": "^1.0.0"
-  }
+  },
+  "license": "MIT",
+  "author": "KeshavSoft",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/keshavsoft/json-api-builder-orchestrator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/keshavsoft/json-api-builder-orchestrator/issues"
+  },
+  "homepage": "https://github.com/keshavsoft/json-api-builder-orchestrator#readme"
 }
