@@ -1,0 +1,36 @@
+{
+  "name": "@keshavsoft/json-api-builder",
+  "version": "1.0.0",
+  "description": "Orchestrator for the modular JSON API Builder stages.",
+  "type": "module",
+  "main": "./src/v1/index.js",
+  "exports": {
+    ".": "./src/v1/index.js",
+    "./v1": "./src/v1/index.js"
+  },
+  "files": [
+    "src",
+    "README.md",
+    "LICENSE"
+  ],
+  "scripts": {
+    "check": "node --check ./src/v1/index.js",
+    "test": "node --test ./test/v1/index.test.js",
+    "prepublishOnly": "npm run check && npm test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "dependencies": {
+    "@keshavsoft/json-api-builder-create-folders": "^1.0.0",
+    "@keshavsoft/json-api-builder-create-files": "^1.0.0",
+    "@keshavsoft/json-api-builder-insert-content": "^1.0.0",
+    "@keshavsoft/json-api-builder-alter-content": "^1.0.0",
+    "@keshavsoft/json-api-builder-create-app": "^1.0.0",
+    "@keshavsoft/json-api-builder-create-endpoints": "^1.0.0",
+    "@keshavsoft/json-api-builder-validation": "^1.0.0"
+  }
+}
