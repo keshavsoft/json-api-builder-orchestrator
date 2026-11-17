@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>api.json Specification Story — JSON API Builder Orchestrator</title>
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- Bootstrap Icons -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              50: '#fffbeb',
+              100: '#fef3c7',
+              400: '#fbbf24',
+              500: '#f59e0b',
+              600: '#d97706',
+              900: '#78350f',
+              950: '#451a03'
+            }
+          }
+        }
+      }
+    }
+  </script>
+</head>
+<body class="bg-zinc-950 text-zinc-100 antialiased min-h-screen flex flex-col font-sans selection:bg-amber-500/30 selection:text-amber-200">
+
+  <!-- Top Navigation -->
+  <nav class="border-b border-zinc-800 bg-zinc-900/90 backdrop-blur-md sticky top-0 z-50">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 h-14 flex items-center justify-between gap-4">
+      <div class="flex items-center gap-2.5 shrink-0">
+        <a href="index.html" class="flex items-center gap-2 text-zinc-400 hover:text-white transition font-mono text-xs">
+          <i class="bi bi-arrow-left"></i>
+          <span>Orchestrator Docs</span>
+        </a>
+        <span class="text-zinc-600">/</span>
+        <div class="flex items-center gap-1.5">
+          <i class="bi bi-filetype-json text-amber-400 text-base"></i>
+          <span class="font-bold text-xs tracking-wider uppercase text-zinc-200">api.json Story</span>
+        </div>
+        <span class="text-[10px] font-semibold text-amber-400 bg-amber-950/80 border border-amber-800/80 px-2 py-0.5 rounded-full hidden sm:inline">Input Contract</span>
+      </div>
+
+      <div class="flex items-center gap-3 text-xs font-mono">
+        <a href="#breakdown" class="text-zinc-400 hover:text-zinc-200 transition hidden sm:inline">Structure Breakdown</a>
+        <a href="#pipeline-mapping" class="text-zinc-400 hover:text-zinc-200 transition hidden md:inline">Pipeline Flow</a>
+        <a href="https://github.com/keshavsoft/json-api-builder-orchestrator" target="_blank" rel="noopener noreferrer" class="text-zinc-400 hover:text-zinc-100 transition" title="View Source on GitHub">
+          <i class="bi bi-github text-base"></i>
+        </a>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Header -->
+  <header class="border-b border-zinc-800/80 bg-[radial-gradient(ellipse_80%_80%_at_50%_-20%,rgba(245,158,11,0.12),rgba(255,255,255,0))] py-12 px-4 sm:px-6">
+    <div class="max-w-5xl mx-auto space-y-4">
+      <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-amber-500/10 border border-amber-500/30 text-amber-400 text-xs font-mono">
+        <i class="bi bi-cpu"></i>
+        <span>The Blueprint of the API</span>
+      </div>
+      <h1 class="text-3xl sm:text-5xl font-extrabold tracking-tight text-white">
+        The Story of <span class="bg-gradient-to-r from-amber-400 via-orange-300 to-amber-500 bg-clip-text text-transparent">api.json</span>
+      </h1>
+      <p class="text-base text-zinc-400 max-w-3xl leading-relaxed">
+        Everything in JSON API Builder starts with <code class="text-amber-300 bg-zinc-900 px-1.5 py-0.5 rounded border border-zinc-800">api.json</code>. It acts as the single source of truth that defines routing paths, CRUD endpoints, database mock files, port bindings, and custom operational strategies.
+      </p>
+    </div>
+  </header>
+
+  <main class="flex-1 max-w-7xl mx-auto w-full px-4 sm:px-6 py-10 space-y-12">
+
+    <!-- Interactive JSON Visual Explorer -->
+    <section class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      
+      <!-- Code Panel -->
+      <div class="lg:col-span-6 bg-zinc-900/90 rounded-2xl border border-zinc-800 shadow-2xl overflow-hidden font-mono text-xs">
+        <div class="bg-zinc-950/80 px-4 py-3 border-b border-zinc-800 flex items-center justify-between">
+          <div class="flex items-center gap-2">
+            <span class="w-2.5 h-2.5 rounded-full bg-red-500/70 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-amber-500/70 inline-block"></span>
+            <span class="w-2.5 h-2.5 rounded-full bg-green-500/70 inline-block"></span>
+            <span class="text-zinc-400 ml-2 font-medium">test/v1/input/api.json</span>
+          </div>
+          <span class="text-[11px] text-zinc-500 uppercase">Input File</span>
+        </div>
+        <div class="p-4 text-zinc-300 overflow-x-auto leading-relaxed">
+<pre><code>{
+  <span class="text-amber-400">"root"</span>: <span class="text-emerald-400">"api"</span>,
+  <span class="text-amber-400">"port"</span>: <span class="text-purple-400">3000</span>,
+  <span class="text-amber-400">"routes"</span>: {
+    <span class="text-blue-400">"v1"</span>: {
+      <span class="text-pink-400">"clinics"</span>: {
+        <span class="text-zinc-400">"resource"</span>: <span class="text-emerald-400">"clinics"</span>,
+        <span class="text-zinc-400">"idField"</span>: <span class="text-emerald-400">"id"</span>,
+        <span class="text-zinc-400">"endpoints"</span>: [
+          { <span class="text-zinc-400">"method"</span>: <span class="text-cyan-400">"GET"</span>,    <span class="text-zinc-400">"path"</span>: <span class="text-emerald-400">"/"</span>,    <span class="text-zinc-400">"operation"</span>: <span class="text-emerald-400">"list"</span> },
+          { <span class="text-zinc-400">"method"</span>: <span class="text-cyan-400">"POST"</span>,   <span class="text-zinc-400">"path"</span>: <span class="text-emerald-400">"/"</span>,    <span class="text-zinc-400">"operation"</span>: <span class="text-emerald-400">"create"</span> },
+          { <span class="text-zinc-400">"method"</span>: <span class="text-cyan-400">"GET"</span>,    <span class="text-zinc-400">"path"</span>: <span class="text-emerald-400">"/:id"</span>, <span class="text-zinc-400">"operation"</span>: <span class="text-emerald-400">"read"</span> },
+          { <span class="text-zinc-400">"method"</span>: <span class="text-cyan-400">"PUT"</span>,    <span class="text-zinc-400">"path"</span>: <span class="text-emerald-400">"/:id"</span>, <span class="text-zinc-400">"operation"</span>: <span class="text-emerald-400">"update"</span> },
+          { <span class="text-zinc-400">"method"</span>: <span class="text-cyan-400">"DELETE"</span>, <span class="text-zinc-400">"path"</span>: <span class="text-emerald-400">"/:id"</span>, <span class="text-zinc-400">"operation"</span>: <span class="text-emerald-400">"delete"</span> }
+        ],
+        <span class="text-zinc-400">"dataFile"</span>: <span class="text-emerald-400">"data/clinics.json"</span>
+      }
+    }
+  },
+  <span class="text-amber-400">"strategies"</span>: {
+    <span class="text-indigo-400">"fs"</span>: {
+      <span class="text-pink-400">"file-sync"</span>: {
+        <span class="text-zinc-400">"method"</span>: <span class="text-cyan-400">"GET"</span>,
+        <span class="text-zinc-400">"path"</span>: <span class="text-emerald-400">"/file-sync"</span>,
+        <span class="text-zinc-400">"dataFile"</span>: <span class="text-emerald-400">"data/players.json"</span>
+      }
+    }
+  }
+}</code></pre>
+        </div>
+      </div>
+
+      <!-- Narrative Breakdown -->
+      <div id="breakdown" class="lg:col-span-6 space-y-6">
+        <div>
+          <h2 class="text-2xl font-bold text-white tracking-tight">The 4 Key Elements of the Story</h2>
+          <p class="text-sm text-zinc-400 mt-1">How each key directly translates into server infrastructure</p>
+        </div>
+
+        <div class="space-y-4">
+          <!-- 1. Root & Port -->
+          <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-amber-500/40 transition">
+            <div class="flex items-center gap-2 text-amber-400 font-mono text-xs font-semibold mb-1">
+              <i class="bi bi-hdd-network"></i>
+              <span>1. Global Runtime Config ("root", "port")</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Specifies the primary mount namespace (<code class="text-zinc-200">/api</code>) and listening port (<code class="text-zinc-200">3000</code>). Used by <strong>json-api-builder-create-app</strong> to initialize the Hono HTTP server instance.
+            </p>
+          </div>
+
+          <!-- 2. Hierarchical Routes -->
+          <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-blue-500/40 transition">
+            <div class="flex items-center gap-2 text-blue-400 font-mono text-xs font-semibold mb-1">
+              <i class="bi bi-diagram-3"></i>
+              <span>2. Hierarchical Routers ("routes.v1.clinics")</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Defines nested route structures. <strong>json-api-builder-alter-content</strong> walks this hierarchy to wire child routers into parent routers automatically without manual imports.
+            </p>
+          </div>
+
+          <!-- 3. Resource & CRUD Endpoints -->
+          <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-purple-500/40 transition">
+            <div class="flex items-center gap-2 text-purple-400 font-mono text-xs font-semibold mb-1">
+              <i class="bi bi-lightning-charge"></i>
+              <span>3. REST Endpoints & Data File</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Declares standard HTTP verbs (<code class="text-zinc-200">GET, POST, PUT, DELETE</code>) and links them to <code class="text-zinc-200">data/clinics.json</code>. <strong>json-api-builder-create-endpoints</strong> generates full CRUD handlers referencing this JSON database.
+            </p>
+          </div>
+
+          <!-- 4. Strategies -->
+          <div class="p-4 rounded-xl bg-zinc-900/60 border border-zinc-800 hover:border-indigo-500/40 transition">
+            <div class="flex items-center gap-2 text-indigo-400 font-mono text-xs font-semibold mb-1">
+              <i class="bi bi-arrow-repeat"></i>
+              <span>4. Operational Strategies ("strategies.fs")</span>
+            </div>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Extensible capabilities outside standard REST. Here, <code class="text-zinc-200">file-sync</code> mounts <code class="text-zinc-200">/fs/file-sync</code>, allowing clients to stream or fetch local datasets like <code class="text-zinc-200">data/players.json</code> directly.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Pipeline Mapping Visualizer -->
+    <section id="pipeline-mapping" class="border-t border-zinc-800/80 pt-10 space-y-6">
+      <div class="text-center space-y-1">
+        <h2 class="text-2xl font-bold text-white tracking-tight">How api.json Flows Through the Stages</h2>
+        <p class="text-sm text-zinc-400">See how each stage consumes parts of the specification</p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 text-xs font-mono">
+        <div class="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="text-emerald-400 font-bold mb-1">Stage 0: Validation</div>
+          <div class="text-zinc-400 text-[11px]">Validates that <code class="text-zinc-300">api.json</code> contains valid methods, paths, and referenced dataFiles exist.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="text-amber-400 font-bold mb-1">Stage 1: Create Folders</div>
+          <div class="text-zinc-400 text-[11px]">Builds <code class="text-zinc-300">api/v1/clinics</code> and <code class="text-zinc-300">endpoints/fs</code> directory paths.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="text-blue-400 font-bold mb-1">Stage 2: Create Files</div>
+          <div class="text-zinc-400 text-[11px]">Creates skeleton files for route modules and copies mock JSON data.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="text-purple-400 font-bold mb-1">Stage 3: Insert Content</div>
+          <div class="text-zinc-400 text-[11px]">Injects AST route boilerplate into all generated route files.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="text-pink-400 font-bold mb-1">Stage 4: Alter Content</div>
+          <div class="text-zinc-400 text-[11px]">Chains <code class="text-zinc-300">clinics</code> router into <code class="text-zinc-300">v1</code> router, and <code class="text-zinc-300">v1</code> into root.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="text-cyan-400 font-bold mb-1">Stage 5: Create App</div>
+          <div class="text-zinc-400 text-[11px]">Creates <code class="text-zinc-300">app.js</code>, binds port 3000, and mounts <code class="text-zinc-300">/api</code>.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="text-indigo-400 font-bold mb-1">Stage 6: Create Endpoints</div>
+          <div class="text-zinc-400 text-[11px]">Generates handlers for list, create, read, update, delete & file-sync.</div>
+        </div>
+        <div class="p-4 rounded-xl bg-zinc-900/50 border border-zinc-800">
+          <div class="text-emerald-400 font-bold mb-1">Stage 7: Verify</div>
+          <div class="text-zinc-400 text-[11px]">Ensures all endpoints and route files match specification exactly.</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Navigation Footer -->
+    <div class="border-t border-zinc-800/80 pt-8 flex items-center justify-between text-xs font-mono">
+      <a href="index.html" class="px-4 py-2 rounded-lg bg-zinc-900 hover:bg-zinc-800 text-zinc-300 transition flex items-center gap-2 border border-zinc-800">
+        <i class="bi bi-arrow-left"></i>
+        <span>Back to Orchestrator Docs</span>
+      </a>
+      <a href="../../json-api-builder-portal/index.html" class="px-4 py-2 rounded-lg bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 transition flex items-center gap-2 border border-amber-500/30">
+        <span>Open Master Portal</span>
+        <i class="bi bi-arrow-right"></i>
+      </a>
+    </div>
+
+  </main>
+
+  <!-- Footer -->
+  <footer class="border-t border-zinc-800 py-6 px-4 text-center text-xs text-zinc-500 font-mono mt-12">
+    <p>JSON API Builder Orchestrator • <a href="https://github.com/keshavsoft/json-api-builder-orchestrator" class="text-zinc-400 hover:text-white transition">KeshavSoft</a></p>
+  </footer>
+
+</body>
+</html>
