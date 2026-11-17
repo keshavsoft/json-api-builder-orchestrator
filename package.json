@@ -1,5 +1,5 @@
 {
-  "name": "json-api-builder",
+  "name": "json-api-builder-orchestrator",
   "version": "1.0.0",
   "description": "Orchestrator for the modular JSON API Builder stages.",
   "type": "module",
