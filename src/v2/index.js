@@ -1,11 +1,17 @@
 import path from "node:path";
-import { createFolders } from "../../../json-api-builder-create-folders/src/index.js";
-import { createFiles } from "../../../json-api-builder-create-files/src/index.js";
-import { insertContent } from "../../../json-api-builder-insert-content/src/v2/index.js";
-import { hookRoutes } from "../../../json-api-builder-alter-content/src/v2/index.js";
-import { buildApp } from "../../../json-api-builder-create-app/src/v2/index.js";
-import { createEndpoints, createFileSyncEndpoint } from "../../../json-api-builder-create-endpoints/src/v2/index.js";
-import { validateConfiguration, verifyGeneratedApp } from "../../../json-api-builder-validation/src/index.js";
+import { createFolders } from "json-api-builder-create-folders";
+import { createFiles } from "json-api-builder-create-files";
+import * as insertModule from "json-api-builder-insert-content";
+import * as alterModule from "json-api-builder-alter-content";
+import * as createAppModule from "json-api-builder-create-app";
+import * as endpointsModule from "json-api-builder-create-endpoints";
+import { validateConfiguration, verifyGeneratedApp } from "json-api-builder-validation";
+
+const insertContent = insertModule.v2?.insertContent ?? insertModule.insertContent;
+const hookRoutes = alterModule.v2?.hookRoutes ?? alterModule.hookRoutes;
+const buildApp = createAppModule.v2?.buildApp ?? createAppModule.buildApp;
+const createEndpoints = endpointsModule.v2?.createEndpoints ?? endpointsModule.createEndpoints;
+const createFileSyncEndpoint = endpointsModule.v2?.createFileSyncEndpoint ?? endpointsModule.createFileSyncEndpoint;
 
 export function build(options = {}) {
     const clientRoot = path.resolve(options.clientRoot ?? process.cwd());
