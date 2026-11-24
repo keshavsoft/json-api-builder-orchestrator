@@ -1,0 +1,11 @@
+{
+  "api": {
+    "routes.js": "templates/routes.estree.json",
+    "v1": {
+      "routes.js": "templates/routes.estree.json",
+      "appointments": {
+        "routes.js": "templates/routes.estree.json"
+      }
+    }
+  }
+}

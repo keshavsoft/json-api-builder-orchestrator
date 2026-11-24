@@ -1,0 +1,14 @@
+[
+  {
+    "id": 1,
+    "patientName": "Ramesh Kumar",
+    "mobileNumber": "9848163021",
+    "description": "General Checkup and Fever"
+  },
+  {
+    "id": 2,
+    "patientName": "Sunita Sharma",
+    "mobileNumber": "9848163022",
+    "description": "Blood Pressure Follow-up"
+  }
+]
