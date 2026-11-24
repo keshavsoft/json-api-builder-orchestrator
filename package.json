@@ -1,15 +1,17 @@
 {
   "name": "json-api-builder-orchestrator",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "description": "Orchestrator for the modular JSON API Builder stages.",
   "type": "module",
   "main": "./src/index.js",
+  "bin": "./bin/index.js",
   "exports": {
     ".": "./src/index.js",
     "./v1": "./src/v1/index.js",
     "./v2": "./src/v2/index.js"
   },
   "files": [
+    "bin",
     "src",
     "README.md",
     "LICENSE",
